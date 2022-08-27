@@ -1,1 +1,40 @@
-<p>login works!</p>
+<div class="row justify-content-center">
+    <div class="col-8 col-md-5">
+        <form [formGroup]="loginForm">
+        
+            <div class="form-group">
+                <label for="Email">Email</label>
+                <input type="text" id="Email" class="form-control" placeholder="Email..." name="email"
+                    [formControl]="email" minlength="4" maxlength="10" pattern="^[a-zA-Z0-9]+$">
+            </div>
+
+            <div class="form-group">
+                <label for="Email">Password</label>
+                <input type="password" id="Email" class="form-control" placeholder="Email..." name="password" [formControl]="password"
+                    minlength="4" maxlength="10" pattern="^[a-zA-Z0-9]+$">
+            </div>
+        
+            <div *ngIf="email.hasError('required')" class="alert alert-danger">
+                Lo Email e' richiesto
+            </div>
+        
+            <div *ngIf="email.hasError('minlength')" class="alert alert-warning">
+                Lo Email e' troppo corto, lunghezza minima 4
+            </div>
+        
+            <div *ngIf="email.hasError('pattern')" class="alert alert-warning">
+                Lo Email accetta solo lettere e numeri
+            </div>
+        
+            <div *ngIf="!email.dirty && email.pristine" class="alert alert-info">
+                Lo Email non e' stato compilato
+            </div>
+        
+            <div *ngIf="!loginForm.valid" class="alert alert-info">
+                Il form non e' valido
+            </div>
+        
+            <button type="submit" [disabled]="!loginForm.valid" class="btn btn-info">Invia dati</button>
+        </form>
+    </div>
+</div>

@@ -11,17 +11,19 @@ import { AdminTratteComponent } from './components/admin/admin-tratte/admin-trat
 import { ClientSearchComponent } from './components/client/client-search/client-search.component';
 import { RegisterComponent } from './components/register/register.component';
 import { RouterModule, Routes } from '@angular/router';
+import { APP_BASE_HREF } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
-    { path: 'home', component: HomeComponent },
-    { path: 'login', component: LoginComponent },
-    { path: 'register', component: RegisterComponent },
-    { path: 'clientHome', component: ClientHomeComponent },
-    { path: 'adminHome', component: AdminHomeComponent },
-    { path: 'clientSearch', component: ClientSearchComponent },
-    { path: 'adminTratte', component: AdminTratteComponent },
+  { path: 'home', component: HomeComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: 'clientHome', component: ClientHomeComponent },
+  { path: 'adminHome', component: AdminHomeComponent },
+  { path: 'clientSearch', component: ClientSearchComponent },
+  { path: 'adminTratte', component: AdminTratteComponent },
   
 ];
 @NgModule({
@@ -38,9 +40,10 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(routes, {useHash:true})
   ],
-  providers: [],
+  providers: [{provide:APP_BASE_HREF, useValue: '/'}],
   bootstrap: [AppComponent]
 })
   
