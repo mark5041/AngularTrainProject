@@ -1,10 +1,10 @@
 <div class="row justify-content-center">
     <div class="col-8 col-md-5">
-        <form [formGroup]="loginForm" class="d-flex flex-column g-2">
+        <form [formGroup]="loginForm" class="d-flex flex-column g-2" (ngSubmit)="onSubmit()">
         
             <div class="form-group">
                 <label for="Email">Email</label>
-                <input type="text" id="Email" class="form-control" placeholder="Email..." name="email"
+                <input type="text" id="Email" class="form-control" placeholder="obbligatorio" name="email"
                     [formControl]="email">
             </div>
 
@@ -14,7 +14,8 @@
 
             <div class="form-group">
                 <label for="Email">Password</label>
-                <input type="password" id="Email" class="form-control" placeholder="Email..." name="password" [formControl]="password">
+                <input [type]="isActive ? 'text' : 'password'" id="Email" class="form-control" placeholder="obbligatorio" name="password" [formControl]="password">
+                <input class="ms-1 mt-2" type="checkbox" (change)="showPass()">
             </div>
         
             <div *ngIf="submitted && password.hasError('invalidPass')" class="alert alert-danger">

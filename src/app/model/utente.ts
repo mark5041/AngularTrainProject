@@ -6,6 +6,5 @@ export class Utente {
   password!: string;
   enabled!: boolean;
   role!: string;
-  biglietto!: Array<Object>;
   cartaFedelta!: Object;
 }

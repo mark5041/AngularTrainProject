@@ -11,10 +11,15 @@ import { AdminTratteComponent } from './components/admin/admin-tratte/admin-trat
 import { ClientSearchComponent } from './components/client/client-search/client-search.component';
 import { RegisterComponent } from './components/register/register.component';
 
+import { ClientService } from './service/client.service';
+import { AdminService } from './service/admin.service';
+
 import { RouterModule, Routes } from '@angular/router';
-import { APP_BASE_HREF } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { APP_BASE_HREF } from '@angular/common';
+
+
 
 
 const routes: Routes = [
@@ -46,7 +51,11 @@ const routes: Routes = [
     HttpClientModule,
     RouterModule.forRoot(routes, {useHash:true})
   ],
-  providers: [{provide:APP_BASE_HREF, useValue: '/'}],
+  providers: [
+    { provide: APP_BASE_HREF, useValue: '/' },
+    ClientService,
+    AdminService
+  ],
   bootstrap: [AppComponent]
 })
   
