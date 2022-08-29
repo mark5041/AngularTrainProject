@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AppComponent } from 'src/app/app.component';
 
 @Component({
   selector: 'app-client-home',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClientHomeComponent implements OnInit {
 
-  constructor() { }
+
+  constructor(private _appComponent: AppComponent) { }
 
   ngOnInit(): void {
+    this._appComponent.setUtente();
   }
 
 }
