@@ -22,7 +22,7 @@ export class ClientService {
 
     return this._http.get<{ [key: string]: Utente }>(this.baseUrl + '/login',
       {
-        'headers': this.httpOptions.headers, params:
+        headers: this.httpOptions.headers, params:
         {
           'email': userEmail,
           'password': userPassword
