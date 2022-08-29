@@ -31,6 +31,17 @@ export class ClientService {
       map((response => response)),
       catchError(this.errorHandler<any>('errore nel login')));
   }
+
+  registra(utente: Utente) {
+    return this._http.post(this.baseUrl + '/registra', {
+        headers: this.httpOptions.headers, params:
+        {
+          'utente': utente
+        }
+      }).pipe(
+    map((response => response)),
+    catchError(this.errorHandler<any>('errore nella registrazione')));
+  }
   
   private errorHandler<T>(operation = "Operazione", result?:T) {
     return (error: any): Observable<T> => {
